@@ -1,0 +1,15 @@
+# Whitelist approach: ignore everything at the repo root by default...
+/*
+
+# ...then keep only the static site + short README.
+!/index.html
+!/styles.css
+!/script.js
+!/assets/
+!/README.md
+!/.gitignore
+!/.nojekyll
+
+# Everything else stays local: source decks/docs, OS cruft, tooling.
+#   Whoosh_Final_Presentation.pptx, *.pdf, *.docx, *.md sources,
+#   .DS_Store, .claude/ — all excluded by the /* rule above.
