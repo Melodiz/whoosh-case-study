@@ -36,6 +36,7 @@
         <a href="#objectives">Objectives</a>
         <a href="#projects">Projects</a>
         <a href="#scoring">Scoring</a>
+        <a href="#live-model">Live model</a>
         <a href="#decision">Decision</a>
         <a href="#platform">Platform</a>
         <a href="#numbers">Numbers</a>
@@ -263,6 +264,77 @@
               <canvas id="scoreChart" role="img" aria-label="Bar chart of weighted totals: Digital Twin 3.05, Safety Control 3.65, Nav Data Platform 4.35 — the highest."></canvas>
             </div>
             <noscript><p class="scoring__note">Digital Twin 3.05 · Safety Control 3.65 · Nav Data Platform 4.35 (winner).</p></noscript>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== 7½ · LIVE MODEL (interactive) ===================== -->
+    <section class="section section--dark" id="live-model">
+      <div class="dotgrid" aria-hidden="true"></div>
+      <div class="container">
+        <div class="section__head reveal">
+          <p class="eyebrow"><span class="lm-badge">Try it</span> Live model · interactive</p>
+          <h2 class="section__title">The engine, live: re-score cities as priorities shift</h2>
+          <p class="lm__lede">
+            This is the Nav Data Platform's scoring engine, running in your browser.
+            Set how much each factor matters and the city ranking re-sorts instantly.
+            Try the presets — watch <strong>our GPS edge</strong> lift Russian cities,
+            then watch raw <strong>demand</strong> pull Latin America to the top.
+          </p>
+        </div>
+
+        <div class="lm__grid reveal">
+          <!-- LEFT · controls -->
+          <div class="lm__panel lm__controls">
+            <div class="lm__panel-head">
+              <h3 class="lm__panel-title">Factor weights</h3>
+              <span class="lm__panel-sub">0–40 each · share recomputes live</span>
+            </div>
+
+            <div class="lm__presets" id="lmPresets" role="group" aria-label="Weighting presets"></div>
+
+            <div class="lm-sliders" id="lmSliders"></div>
+
+            <noscript>
+              <p class="lm__noscript">This is an interactive demo and needs JavaScript enabled. With JS off, the static scoring table above shows the method.</p>
+            </noscript>
+
+            <details class="lm-method">
+              <summary>
+                <span class="lm-method__dot" aria-hidden="true"></span>
+                Data &amp; method — what's real, what's an estimate
+              </summary>
+              <div class="lm-method__body">
+                <p><strong>Population figures are real public data.</strong> The six 1–10 factor
+                scores are the team's <strong>MVP-grade estimates</strong>, calibrated from public
+                signals — documented GPS-interference reports in Russian cities, known competitor
+                presence, and market readiness reports.</p>
+                <p>They are a deliberate <strong>proxy layer</strong>: exactly what the 7th-gen
+                module's live navigation data would replace with measured ground truth once the
+                platform is deployed. We never claim these scores are measured — transparency about
+                the inputs is the point.</p>
+                <p class="lm-method__formula">
+                  city score = Σ(weight × factor) ÷ Σ(weight) &nbsp;·&nbsp; scale 1–10
+                </p>
+              </div>
+            </details>
+          </div>
+
+          <!-- RIGHT · results -->
+          <div class="lm__results">
+            <div class="lm__panel lm-reco" id="lmReco" aria-live="polite">
+              <!-- filled by JS -->
+            </div>
+
+            <div class="lm__panel lm-rankwrap">
+              <div class="lm__panel-head">
+                <h3 class="lm__panel-title">City ranking</h3>
+                <div class="lm-legend" id="lmLegend"></div>
+              </div>
+              <ol class="lm-rank" id="lmRank" aria-label="Candidate cities ranked by weighted score"></ol>
+              <p class="lm-rank__hint">Tap a city to see its six factor scores. Scores are out of 10.</p>
+            </div>
           </div>
         </div>
       </div>
